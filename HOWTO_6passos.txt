@@ -1,0 +1,6 @@
+1) Crie o ambiente (conda ou venv) e ative-o.
+2) Baixe o HAM10000 (imagens + HAM10000_metadata.csv) e coloque em data/raw/HAM10000/.
+3) Rode `python scripts/verify_ham10000.py --root data/raw/HAM10000` para checar contagens e hashes.
+4) Abra o notebook `notebooks/00_check_environment.ipynb` e valide imports.
+5) Rode `notebooks/01_explore_ham10000.ipynb` para explorar metadados e distribuição de classes.
+6) Inicie `streamlit run app/app.py` para ver o protótipo e confirmar setup.
