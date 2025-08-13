@@ -30,13 +30,14 @@ def fig_ax(size: str = "M", **kwargs):
     fig, ax = plt.subplots(figsize=(w, h), **kwargs)
     return fig, ax
 
-def save_fig(fig: plt.Figure, path: str | Path, tight: bool = True, dpi: int = 300):
-    """Salva a figura como PNG em 300 DPI (ou outro informado)."""
+def save_fig(fig, path, tight=True, dpi=300):
+    from pathlib import Path
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
     if tight:
         fig.tight_layout()
-    fig.savefig(path, format="png", dpi=dpi)
+    # Garante aparência consistente (sem transparência)
+    fig.savefig(path, format="png", dpi=dpi, facecolor="white", transparent=False)
 
 # Helpers opcionais
 def beautify_axes(ax, grid: bool = True):
